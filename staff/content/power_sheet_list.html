@@ -1,0 +1,27 @@
+<?php 
+include_once $_SERVER['DOCUMENT_ROOT']."/includes/db_connect.php"; ?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Power Sheet Listing</title>
+ </head>
+ 
+ <body>
+ 
+
+ <?php
+
+	$sql = "SELECT c.char_name, p.* FROM `character` c JOIN power_sheets p ON c.id = p.char_id";
+	$result = $mysqli->query($sql);
+	echo "<table class=\"table\"> <thead><th>Character</th><th>Power Sheet</th><th></th></thead><tbody>";
+	$sheets = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	foreach($sheets as $sheet){
+		echo "<tr><td>" . $sheet["char_name"] . "</td><td>" . $sheet["file_name"] . "</td><td>";
+		echo "<td> <a href=\"index.php?page=power_sheet_delete.html&id=" . $sheet["id"] . "\"><span class=\"glyphicon glyphicon-trash\"></span> delete</a></td></tr>";
+	}
+	echo "</tbody></table>";
+
+ ?>
+ 
+ </body>

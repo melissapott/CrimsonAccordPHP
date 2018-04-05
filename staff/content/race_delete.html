@@ -1,0 +1,44 @@
+<?php include_once $_SERVER['DOCUMENT_ROOT']."/includes/race_functions.php"; ?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Delete a Character Race</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+</head>
+<body>
+
+	<?php	
+		$sql = "SELECT * FROM races WHERE id = " . $_GET["id"];
+		$result = $mysqli->query($sql);
+		$row = $result->fetch_assoc();
+	?>
+	
+	<div class="panel panel-default">
+	<div class="panel-heading">Delete Race Record</div>
+	<div class="panel-body">
+	<form class="form-horizontal" action="../includes/race_functions.php" method="post" name="race_delete_form">
+		
+		<div class="form-group">
+			<label for "racename" class="control-label col-sm-2">Race Name:</label>
+			<div class="col-sm-4">
+				<input type="text" disabled class="form-control" id="racename" name="racename" value = "<?php echo $row["race_name"];?>"/>
+			</div>
+		</div>
+		<input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
+		<input type="hidden" name="activity" value="delete">
+		
+		<div class="col-sm-offset-2 col-sm-10">
+			<input class="btn" type="submit" value="Delete Race">
+		</div>
+		
+	</form>
+	</div>
+	<div class="panel-footer">Please be aware that this action will also delete any associated race sheets and cannot be undone.</div>
+	</div>
+	
+</body>
+</html>

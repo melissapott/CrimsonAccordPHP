@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+
+<p>Photos from game nine</p>
+<p>February 2013</p>
+
+
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+<div id="links">
+    <a href="images/game9/1game9.jpg" title="">
+        <img src="images/game9/thumbs/1game9.jpg" alt="">
+    </a>
+    <a href="images/game9/2game9.jpg" title="">
+        <img src="images/game9/thumbs/2game9.jpg" alt="" >
+    </a>
+    <a href="images/game9/3game9.jpg" title="">
+        <img src="images/game9/thumbs/3game9.jpg" alt="" >
+    </a>
+	<a href="images/game9/4game9.jpg" title="">
+		<img src="images/game9/thumbs/4game9.jpg" alt="" >
+    </a>
+	<a href="images/game9/5game9.jpg" title="">
+		<img src="images/game9/thumbs/5game9.jpg" alt="">
+    </a>
+    <a href="images/game9/6game9.jpg" title="">
+        <img src="images/game9/thumbs/6game9.jpg" alt="">
+    </a>
+	<a href="images/game9/7game9.jpg" title="">
+        <img src="images/game9/thumbs/7game9.jpg" alt="">
+    </a>
+    <a href="images/game9/8game9.jpg" title="">
+        <img src="images/game9/thumbs/8game9.jpg" alt="">
+    </a>
+    <a href="images/game9/9game9.jpg" title="">
+        <img src="images/game9/thumbs/9game9.jpg" alt="">
+    </a>
+    <a href="images/game9/10game9.jpg" title="">
+        <img src="images/game9/thumbs/10game9.jpg" alt="">
+    </a>
+    <a href="images/game9/11game9.jpg" title="">
+        <img src="images/game9/thumbs/11game9.jpg" alt="">
+    </a>
+    <a href="images/game9/12game9.jpg" title="">
+        <img src="images/game9/thumbs/12game9.jpg" alt="">
+    </a>
+    <a href="images/game9/13game9.jpg" title="">
+        <img src="images/game9/thumbs/13game9.jpg" alt="">
+    </a>
+    <a href="images/game9/14game9.jpg" title="">
+        <img src="images/game9/thumbs/14game9.jpg" alt="">
+    </a>
+    <a href="images/game9/15game9.jpg" title="">
+        <img src="images/game9/thumbs/15game9.jpg" alt="">
+    </a>
+    <a href="images/game9/16game9.jpg" title="">
+        <img src="images/game9/thumbs/16game9.jpg" alt="">
+    </a>
+    <a href="images/game9/17game9.jpg" title="">
+        <img src="images/game9/thumbs/17game9.jpg" alt="">
+    </a>
+    <a href="images/game9/18game9.jpg" title="">
+        <img src="images/game9/thumbs/18game9.jpg" alt="">
+    </a>
+    <a href="images/game9/19game9.jpg" title="">
+        <img src="images/game9/thumbs/19game9.jpg" alt="">
+    </a>
+	
+</div>
+
+
+
+
+
+
+
+<script src="js/blueimp-gallery.min.js"></script>
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>
+
+</article>
+</body>
+</html>

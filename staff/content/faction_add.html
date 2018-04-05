@@ -1,0 +1,39 @@
+<?php include_once $_SERVER['DOCUMENT_ROOT']."/includes/faction_functions.php"; ?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Add or Edit Character Factions</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+</head>
+<body>
+
+	<?php list_factions($mysqli); ?>
+	
+	<div class="panel panel-default">
+	<div class="panel-heading">Add a New Faction Record</div>
+	<div class="panel-body">
+	<form class="form-horizontal" action="../includes/faction_functions.php" method="post" name="faction_add_form">
+		
+		<div class="form-group">
+			<label for "factionname" class="control-label col-sm-2">Faction Name:</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="factionname" name="factionname"/>
+			</div>
+		</div>
+
+		<input type="hidden" name="activity" value="add">
+		
+		<div class="col-sm-offset-2 col-sm-10">
+			<input class="btn" type="submit" value="Add Faction">
+		</div>
+		
+	</form>
+	</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?php 
+	include_once $_SERVER['DOCUMENT_ROOT']."/includes/file_functions.php"; 
+	include_once $_SERVER['DOCUMENT_ROOT']."/includes/character_functions.php";
+?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Add Character Sheet</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+ 
+</head>
+<body>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">Add a Character Sheet</div>
+		<div class="panel-body">
+			<form class="form-horizontal" action="../includes/file_functions.php" method="post" name="file_upload" enctype="multipart/form-data">
+
+				<?php 
+				get_game_numbers($mysqli); 
+				get_characters($mysqli);
+				
+				?>
+
+				<div class="col-sm-10">
+					<input name="userfile" type="file" id="userfile" class="form-control file_input_div"> 
+				</div>
+				
+				<input type="hidden" name="activity" value="add_character_sheet">
+				<input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+				
+				<br></br>
+				<div class="col-sm-offset-2 col-sm-10">
+					<input name="upload" type="submit" class="btn btn-primary" id="upload" value=" Upload ">
+				</div>
+				
+			</form>
+		</div>
+		<div class="panel-footer">Uploaded files should be in PDF format.  All fields must be completed.</div>
+	</div>
+</body>
+</html>

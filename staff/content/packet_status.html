@@ -1,0 +1,104 @@
+<?php
+include_once $_SERVER['DOCUMENT_ROOT']."/includes/file_functions.php"; ?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Packet Status</title>
+ </head>
+
+ <body>
+ 	<?php $game_number = $_POST["game_select"]; ?>
+ 	<h3>Process Packets for Game #<?php echo $game_number; ?></h3>
+ 	<p>This may take a few minutes...</p>
+	 <!--bulid the table heading -->
+	<table class="table">
+		<thead>
+			<tr>
+			<th>Character Name</th>
+			<th>Character Sheet</th>
+			<th>Personal Narrative</th>
+			<th>Power Sheet</th>
+			<th>Race Sheet</th>
+			<th>Status</th>
+			</tr>
+		</thead>
+
+		<?php
+			$sql = "SELECT * FROM `character`";
+			$result = $mysqli->query($sql);
+			$characters = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+		//begin outer loop for character names, which will be rows
+
+		foreach($characters as $character){
+			echo "<tr><td>". $character["char_name"] . "</td></td><td>";
+
+			//set up a variable to indicate if all the required documents are available
+			$status = "complete";
+
+			//now look for a character sheet
+			$sql = "SELECT * FROM character_sheets WHERE char_id = " . $character["id"] . " AND game_number = " . $game_number;
+			$result = $mysqli->query($sql);
+			if ($result->num_rows > 0){
+				echo "OK";
+			} else {
+				echo "Not Found";
+				$status = "incomplete";
+			}
+			echo "</td><td>";
+
+			//now we need the personal narrative
+			$sql = "SELECT * FROM character_narratives WHERE char_id = " . $character["id"] . " AND game_number = " . $game_number;
+			$result = $mysqli->query($sql);
+			if($result->num_rows > 0){
+				echo "OK";
+			} else {
+				echo "Not Found";
+				$status = "incomplete";
+			}
+
+			echo "</td><td>";
+
+			//next is the power sheet
+			$sql = "SELECT * FROM power_sheets WHERE char_id = " . $character["id"];
+			$result = $mysqli->query($sql);
+			if($result->num_rows > 0) {
+				echo "OK";
+			} else {
+				echo "Not Found";
+				$status = "incomplete";
+			}
+
+			echo "</td><td>";
+
+			//next is the race sheet
+			$sql = "SELECT * FROM race_sheets JOIN `character` on race_sheets.race_id = `character`.race_id WHERE `character`.id = " . $character["id"];
+			$sql = $sql . " AND game_number = " . $game_number;
+			$result = $mysqli->query($sql);
+			if($result->num_rows > 0) {
+				echo "OK";
+			} else {
+				echo "Not Found";
+				$status = "incomplete";
+			}
+
+			//and finally, the status of the package - complete or incomplete
+			echo "</td><td>";
+			if ($status == "complete") {
+				echo "COMPLETE</td></tr>";
+			} else {
+				echo "<div class = \"text-danger\">INCOMPLETE!</div></td></tr>";
+			}
+
+
+		}
+		?>
+	</table>
+
+		<a href="index.php?page=mailer/mailerone.php&game_number=<?php echo $game_number; ?>" class="btn btn-default">Send Group One Now</a>
+		<a href="index.php?page=mailer/mailertwo.php&game_number=<?php echo $game_number; ?>" class="btn btn-default">Send Group Two Now</a>
+		<a href="index.php?page=mailer/mailerthree.php&game_number=<?php echo $game_number; ?>" class="btn btn-default">Send Group Three Now</a>
+		<a href="index.php?page=mailer/mailerfour.php&game_number=<?php echo $game_number; ?>" class="btn btn-default">Send Group Four Now</a>
+		<a href="index.php?page=mailer/mailerfive.php&game_number=<?php echo $game_number; ?>" class="btn btn-default">Send Group Five Now</a>
+		<a href="index.php?page=mailer/mailersix.php&game_number=<?php echo $game_number; ?>" class="btn btn-default">Send Group Six Now</a>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+
+<p>Photos from game eight</p>
+<p>December 2012</p>
+
+
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+<div id="links">
+    <a href="images/game8/1game8.jpg" title="">
+        <img src="images/game8/thumbs/1game8.jpg" alt="">
+    </a>
+    <a href="images/game8/2game8.jpg" title="">
+        <img src="images/game8/thumbs/2game8.jpg" alt="" >
+    </a>
+    <a href="images/game8/3game8.jpg" title="">
+        <img src="images/game8/thumbs/3game8.jpg" alt="" >
+    </a>
+	<a href="images/game8/4game8.jpg" title="">
+		<img src="images/game8/thumbs/4game8.jpg" alt="" >
+    </a>
+	<a href="images/game8/5game8.jpg" title="">
+		<img src="images/game8/thumbs/5game8.jpg" alt="">
+    </a>
+    <a href="images/game8/6game8.jpg" title="">
+        <img src="images/game8/thumbs/6game8.jpg" alt="">
+    </a>
+	<a href="images/game8/7game8.jpg" title="">
+        <img src="images/game8/thumbs/7game8.jpg" alt="">
+    </a>
+    <a href="images/game8/8game8.jpg" title="">
+        <img src="images/game8/thumbs/8game8.jpg" alt="">
+    </a>
+    <a href="images/game8/9game8.jpg" title="">
+        <img src="images/game8/thumbs/9game8.jpg" alt="">
+    </a>
+
+	
+</div>
+
+
+
+
+
+
+
+<script src="js/blueimp-gallery.min.js"></script>
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>
+
+</article>
+</body>
+</html>

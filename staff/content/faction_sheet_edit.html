@@ -1,0 +1,60 @@
+<?php include_once $_SERVER['DOCUMENT_ROOT']."/includes/file_functions.php"; ?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Edit Faction Sheet</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+ 
+</head>
+<body>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">Edit Faction Sheet Details / Delete a Faction Sheet</div>
+		<div class="panel-body">
+			<form class="form-horizontal" action="../includes/file_functions.php" method="post" name="file_upload" enctype="multipart/form-data">
+
+				<?php 
+				get_game_numbers($mysqli, $_GET["game"]); 
+				get_factions($mysqli,$_GET["faction"]);
+				$sql = "SELECT * FROM faction_sheets WHERE id = " . $_GET["id"];
+				$result = $mysqli->query($sql);
+				$row = $result->fetch_assoc();
+				?>
+				<div class="form-group"><label for "filename" class="control-label col-sm-3">File Name: </label>
+					<div class="col-sm-6">
+						<input name="userfile" type="text" id="userfile" class="form-control file_input_div" disabled placeholder="<?php echo $row["file_name"]; ?>"> 
+					</div>
+				</div>
+				<div class="radio">
+					<label>
+					<input type="radio" name="optionsAction" id="optionsAction1" value="update" checked>
+						Update the faction sheet with new game date and/or faction
+					</label>
+				</div>
+				<div class="radio">
+					<label>
+					<input type="radio" name="optionsAction" id="optionsAction2" value="delete">
+						Delete the faction sheet (can't be un-done!)
+					</label>
+				</div>
+	
+				<input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>">
+				<input type="hidden" name="activity" value="edit_faction_sheet">
+				<input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+				<br>
+		
+				<div class="col-sm-offset-3 col-sm-10">
+					<input name="upload" type="submit" class="btn btn-primary" id="upload" value=" Edit/Delete ">
+					<input name="download" class="btn btn-primary" id="download" value = " View/Download" onclick="window.location.href='content/file_download.php?file=faction_sheets&id=<?php echo $_GET["id"];?>'"> 
+				</div>
+				
+			</form>
+		</div>
+		<div class="panel-footer"></div>
+	</div>
+</body>
+</html>

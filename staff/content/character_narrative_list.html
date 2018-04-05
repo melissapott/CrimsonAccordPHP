@@ -1,0 +1,38 @@
+<?php 
+include_once $_SERVER['DOCUMENT_ROOT']."/includes/db_connect.php"; ?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Character Narrative Listing</title>
+ </head>
+ 
+ <body>
+<table class="table"> <thead> <tr> <th>Character</th><th>Narrative File</th><th></th></tr></thead><tbody>
+ <?php
+
+//get the character names for the row labels
+$sql = "SELECT * FROM `character`";
+$result = $mysqli->query($sql);
+$characters = mysqli_fetch_all($result, MYSQLI_ASSOC);
+foreach( $characters as $character ){
+   echo "<tr><td>" .  $character["char_name"] . "</td><td>";
+   $sql = "SELECT * FROM character_narratives WHERE char_id = " . $character["id"] . " AND game_number = " . $_POST["game_select"];
+   $result = $mysqli->query($sql);
+   if ($result->num_rows > 0){
+	$row=$result->fetch_assoc();
+	echo $row["file_name"] . "</td>";
+	echo "<td><a href=\"index.php?page=character_narrative_edit.html&id=" . $row["id"] . "&char_id=" . $row["char_id"] . "&game=" . $row["game_number"];
+	echo "\"><span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span></a></td>";
+   } else {
+	echo "no file found</td><td></td>";
+   }
+   echo "</tr>";
+   
+}
+echo "</tbody></table>";
+
+
+ ?>
+ 
+ </body>

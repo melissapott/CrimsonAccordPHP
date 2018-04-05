@@ -1,0 +1,44 @@
+<?php 
+	include_once $_SERVER['DOCUMENT_ROOT']."/includes/file_functions.php"; 
+	include_once $_SERVER['DOCUMENT_ROOT']."/includes/character_functions.php";
+?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Delete Player</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+ 
+</head>
+<body>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">Delete Player</div>
+		<div class="panel-body">
+			<form class="form-horizontal" action="../includes/character_functions.php" method="post" name="player_delete" enctype="multipart/form-data">
+
+				<?php 
+				$sql = "SELECT * FROM `players` WHERE id = " . $_GET["id"];
+				$result = $mysqli->query($sql);
+				$row = $result->fetch_assoc();
+				?>
+				<h3>
+					Delete <?php echo $row['username']; ?>?
+				</h3>
+				<input type="hidden" name="activity" value="delete_player">
+				<input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
+				
+				<br></br>
+				<div class="col-sm-offset-3 col-sm-10">
+					<input name="upload" type="submit" class="btn btn-primary" id="upload" value="Delete Player">
+				</div>
+				
+			</form>
+		</div>
+		<div class="panel-footer">Warning - this cannot be un-done!</div>
+	</div>
+</body>
+</html>

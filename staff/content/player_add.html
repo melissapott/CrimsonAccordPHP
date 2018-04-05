@@ -1,0 +1,47 @@
+<?php 
+	include_once $_SERVER['DOCUMENT_ROOT']."/includes/file_functions.php"; 
+	include_once $_SERVER['DOCUMENT_ROOT']."/includes/character_functions.php";
+?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Edit Player</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+</head>
+<body>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">Add Player</div>
+		<div class="panel-body">
+			<form class="form-horizontal" action="../includes/character_functions.php" method="post" name="player_add" enctype="multipart/form-data">
+
+				<div class="form-group">
+					<label for "playername" class="control-label col-sm-3">Player Name:</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" name="username">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for "email" class="control-label col-sm-3">Email:</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" name="email">
+					</div>
+				</div>
+				<input type="hidden" name="activity" value="add_player">
+
+				<br></br>
+				<div class="col-sm-offset-3 col-sm-10">
+					<input name="upload" type="submit" class="btn btn-primary" id="upload" value="Add Player">
+				</div>
+
+			</form>
+		</div>
+		<div class="panel-footer"></div>
+	</div>
+</body>
+</html>

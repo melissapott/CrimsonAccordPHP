@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+
+<p>Photos from game one</p>
+<p>August 2011</p>
+
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+<div id="links">
+    <a href="images/game1/1gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/1gallery1game1_54_72_80.jpg" alt="">
+    </a>
+    <a href="images/game1/2gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/2gallery1game1_54_72_80.jpg"="">
+    </a>
+    <a href="images/game1/3gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/3gallery1game1_54_72_80.jpg" alt="">
+    </a>
+	<a href="images/game1/4gallery1game1.jpg" title="">
+		<img src="images/game1/thumbs/4gallery1game1_64_48_80.jpg" alt="">
+    </a>
+	<a href="images/game1/5gallery1game1.jpg" title="">
+		<img src="images/game1/thumbs/5gallery1game1_54_72_80.jpg" alt="">
+    </a>
+    <a href="images/game1/6gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/6gallery1game1_54_72_80.jpg" alt="">
+    </a>
+	<a href="images/game1/7gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/7gallery1game1_54_72_80.jpg" alt="">
+    </a>
+    <a href="images/game1/8gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/8gallery1game1_64_48_80.jpg" alt="">
+    </a>
+    <a href="images/game1/9gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/9gallery1game1_64_48_80.jpg" alt="">
+    </a>
+    <a href="images/game1/10gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/10gallery1game1_64_48_80.jpg" alt="">
+    </a>
+    <a href="images/game1/11gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/11gallery1game1_54_72_80.jpg" alt="">
+    </a>
+    <a href="images/game1/12gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/12gallery1game1_54_72_80.jpg" alt="">
+    </a>
+    <a href="images/game1/13gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/13gallery1game1_64_48_80.jpg" alt="">
+    </a>
+    <a href="images/game1/14gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/14gallery1game1_54_72_80.jpg" alt="">
+    </a>
+    <a href="images/game1/15gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/15gallery1game1_54_72_80.jpg" alt="">
+    </a>
+    <a href="images/game1/16gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/16gallery1game1_72_72_80.jpg" alt="">
+    </a>
+    <a href="images/game1/17gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/17gallery1game1_64_48_80.jpg" alt="">
+    </a>
+    <a href="images/game1/18gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/18gallery1game1_54_72_80.jpg" alt="">
+    </a>
+    <a href="images/game1/19gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/19gallery1game1_54_72_80.jpg" alt="">
+    </a>
+    <a href="images/game1/20gallery1game1.jpg" title="">
+        <img src="images/game1/thumbs/20gallery1game1_54_72_80.jpg" alt="">
+    </a>
+    <a href="images/game1/21gallery1.jpg" title="">
+        <img src="images/game1/thumbs/21gallery1.png" alt="">
+    </a>
+    <a href="images/game1/22gallery1.jpg" title="">
+        <img src="images/game1/thumbs/22gallery1.png" alt="">
+    </a>
+    <a href="images/game1/23gallery1.jpg" title="">
+        <img src="images/game1/thumbs/23gallery1.png" alt="">
+    </a>
+    <a href="images/game1/24gallery1.jpg" title="">
+        <img src="images/game1/thumbs/24gallery1.png" alt="">
+    </a>
+    <a href="images/game1/25gallery1.jpg" title="">
+        <img src="images/game1/thumbs/25gallery1.png" alt="">
+    </a>
+	<a href="images/game1/26gallery1.jpg" title="">
+        <img src="images/game1/thumbs/26gallery1.png" alt="">
+    </a>
+    <a href="images/game1/27gallery1.jpg" title="">
+        <img src="images/game1/thumbs/27gallery1.png" alt="">
+    </a>
+    <a href="images/game1/28gallery1.jpg" title="">
+        <img src="images/game1/thumbs/28gallery1.png" alt="">
+    </a>
+	<a href="images/game1/29gallery1.jpg" title="">
+        <img src="images/game1/thumbs/29gallery1.png" alt="">
+    </a>
+</div>
+
+
+
+
+
+
+
+<script src="js/blueimp-gallery.min.js"></script>
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>
+
+</article>
+</body>
+</html>

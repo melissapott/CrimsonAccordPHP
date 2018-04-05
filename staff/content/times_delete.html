@@ -1,0 +1,58 @@
+<?php 
+include_once $_SERVER['DOCUMENT_ROOT']."/includes/file_functions.php"; ?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Delete Newspaper</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+</head>
+<body>
+
+	<?php $row = get_edit_date($_GET['id'], $mysqli); ?>
+	<div class="panel panel-default">
+		<div class="panel-heading">Delete a NA Times Record</div>
+		<div class="panel-body">
+			<form class="form-horizontal" action="../includes/file_functions.php" method="post" name="file_upload" enctype="multipart/form-data">
+				<div class="form-group">
+					<label for "datepicker" class="control-label col-sm-2">Issue Date: </label>
+			
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="datepicker" name="datepicker" disabled value="<?php echo $row["news_date"]; ?>"/></input>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for "currentnumber" class="control-label col-sm-2">Current Game #: </label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="currentnumber" name="currentnumber" value="<?php echo $row["game_number"]; ?>" disabled>
+					</div>
+				</div>
+				
+
+				<div class="col-sm-10">
+					<input name="userfile" type="text" id="userfile" class="form-control" value = "<?php echo $row["file_name"]?>" disabled> 
+				</div>
+				
+				<input type="hidden" name="activity" value="delete_times">
+				<input type="hidden" name="id" value="<?php echo $row["id"]?>">
+				<?php $mysqli->close();?>
+				
+				<br></br>
+				<div class="col-sm-offset-2 col-sm-10">
+					<input name="upload" type="submit" class="btn btn-primary" id="upload" value=" Confirm Delete ">
+				</div>
+				
+			</form>
+		</div>
+		<div class="panel-footer">This entry will be deleted and cannot be undone.</div>
+	</div>
+</body>
+</html>

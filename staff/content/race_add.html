@@ -1,0 +1,39 @@
+<?php include_once $_SERVER['DOCUMENT_ROOT']."/includes/race_functions.php"; ?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Add or Edit Character Races</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+</head>
+<body>
+
+	<?php list_races($mysqli); ?>
+	
+	<div class="panel panel-default">
+	<div class="panel-heading">Add a New Race Record</div>
+	<div class="panel-body">
+	<form class="form-horizontal" action="../includes/race_functions.php" method="post" name="race_add_form">
+		
+		<div class="form-group">
+			<label for "racename" class="control-label col-sm-2">Race Name:</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="racename" name="racename"/>
+			</div>
+		</div>
+
+		<input type="hidden" name="activity" value="add">
+		
+		<div class="col-sm-offset-2 col-sm-10">
+			<input class="btn" type="submit" value="Add Race">
+		</div>
+		
+	</form>
+	</div>
+	</div>
+	
+</body>
+</html>

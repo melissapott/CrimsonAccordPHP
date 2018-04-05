@@ -1,0 +1,36 @@
+<?php 
+	include_once $_SERVER['DOCUMENT_ROOT']."/includes/file_functions.php"; 
+	include_once $_SERVER['DOCUMENT_ROOT']."/includes/character_functions.php";
+?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>List Characters</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+ 
+</head>
+<body>
+<table class="table"> <thead> <tr> <th>Character</th><th>Player</th><th>Race</th><th>edit</th><th>delete</th></tr></thead><tbody>
+<?php
+$sql = "SELECT c.char_name AS charname, c.id AS charid, r.race_name AS racename, p.username AS playername FROM `character` c ";
+$sql = $sql . "LEFT JOIN races r on c.race_id  = r.id LEFT JOIN players p on p.id = c.player_id ORDER BY c.char_name";
+$result = $mysqli->query($sql);
+
+if ($result->num_rows > 0){
+	while($row=$result->fetch_assoc()){
+		echo "<tr><td>" . $row['charname'] . "</td><td>" . $row['playername'] . "</td><td>" . $row['racename'] . "</td>";
+		echo "<td><a href=\"index.php?page=character_edit.html&id=" . $row['charid'] . "\"><span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span></a></td>";
+		echo "<td><a href=\"index.php?page=character_delete.html&id=" . $row['charid'] . "\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></a></td></tr>";
+	}
+} else {
+	echo "no rows returned <br>" . $sql;
+}
+
+	
+?>
+</body>
+</html>

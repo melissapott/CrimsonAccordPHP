@@ -1,0 +1,268 @@
+/* stylesheet */
+
+@font-face {
+	font-family: "neuropol";
+	src: url(http://www.crimsonaccord.com/fonts/neuropol/NEUROPOL.TTF) format("truetype");
+	}
+	
+@font-face {
+	font-family: "chiller";
+	src: url(http://www.crimsonaccord.com/fonts/chiller/chiller.ttf) format("truetype");
+	}
+	
+@font-face {
+	font-family: "trinigan";
+	src: url(http://www.crimsonaccord.com/fonts/trinigan/trinigan.ttf) format("truetype");
+	}
+
+body{
+	background-color: black;
+	/*font-family: 'Orbitron', sans-serif;*/
+	/* font-family: neuropol, sans-serif; */
+	font-family: 'Merriweather', serif;
+	color: #49F1FE;
+	font-weight: 100;
+	padding: 0;
+}
+
+h1, h2, h3, h4 {
+	font-family: neuropol, sans-serif;
+}
+
+.img-ads {
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #000000;
+  border: px solid #49F1FE;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+.panel-body {
+	color: #191919;
+}
+.panel-heading {
+	font-family: "Orbitron";
+	font-weight: bold;
+}
+
+.panel-footer {
+	font-family: "Orbitron";
+	font-size: small;
+	color: black;
+}
+
+.werewolf {
+	font-family: "chiller";
+	font-size : 60px;
+	color: red;
+}
+.vampire {
+	font-family: "trinigan";
+	font-size : 60px;
+	color: red;
+}
+.mage {
+	font-family: "neuropol";
+	font-size: 60px;
+	color: blue;
+}
+
+.symposium {
+	font-family: "neuropol";
+	font-size: 60px;
+	color: #bcbbbb;
+}
+.text-muted{
+	color: #bcbbbb;
+}
+
+.text-thin{
+	font-weight: 100;
+}
+
+.title-logo{
+	margin-top: 20px;
+}
+
+.title-super{
+	font-size: 60px;
+}
+
+}
+.orbitbold{
+	font-weight:700;
+}
+.orbitultra{
+	font-weight:900;
+}
+.h4{
+color:yellow;
+font-weight:900;
+}
+/* unvisited link */
+a:link {
+    color: yellow;
+}
+
+/* visited link */
+a:visited {
+    color: yellow;
+}
+
+/* mouse over link */
+a:hover {
+    color: red;
+	
+}
+
+/* selected link */
+a:active {
+    color: red;
+}
+.btn{
+	color: white;
+	background-image: -webkit-linear-gradient(top, #b8dee8 0%, #084449 100%);
+	background-image: linear-gradient(to bottom, #b8dee8 0%, #084449 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8dee8', endColorstr='#084449', GradientType=0);
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+}
+
+.navbar{
+	font-family: orbitron, sans-serif;
+}
+
+.nav-pills > li > a:hover, .nav-pills > li > a:active{
+	background-color: #2e2e2e;
+	color: white;
+}
+.nav-pills > li> a:focus{
+	background-color: black;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  background: red;
+  cursor: inherit;
+  display: block;
+}
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
+
+/* overrides for PHPBB3 */
+.headerbar {
+	color: #49f1fe;
+	background-color: #000;
+	background-image: none;
+	border: 2px solid #49f1fe;
+	border-radius: 10px;
+}
+
+.forum-navbar{
+	background-color: #000;
+	border-radius: 10px;
+}
+
+.forabg, .forumbg{
+	border-radius: 10px;
+	background: -webkit-linear-gradient(left, rgba(73,241,254,0), rgba(73,241,254,1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, rgba(73,241,254,0), rgba(73,241,254,1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, rgba(73,241,254,0), rgba(73,241,254,1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgba(73,241,254,0), rgba(73,241,254,1)); /* Standard syntax (must be last) */
+    padding: 10px;
+}
+
+.forumbgb {
+	border-radius: 10px;
+	background: -webkit-linear-gradient(left, rgba(73,241,254,1), rgba(73,241,254,0)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, rgba(73,241,254,1), rgba(73,241,254,0)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, rgba(73,241,254,1), rgba(73,241,254,0)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgba(73,241,254,1), rgba(73,241,254,0)); /* Standard syntax (must be last) */
+    padding: 10px;
+}
+
+ul.forums {
+	background: none;
+	col
+}
+
+li.row:hover {
+	background-color: #49f1fe;
+}
+
+.panel {
+	background-color: #333;
+	color: lightgray;
+}
+
+.bg1, .bg2 {
+	background: none;
+}
+
+.postbody, .content {
+	color: white;
+}
+
+dl.icon {
+	color: black;
+}
+
+
+.rank {
+	color: white;
+}
+
+
+table.table1 td {
+	color: white;
+	border-color: gray;
+}
+
+.faq strong {
+	color: white;
+}
+
+dd label, label {
+	color: white;
+}
+
+dd.mark {
+	color: white;
+	background: none;
+}
+
+.ucp-main, #cp-main .panel {
+	background-color: black;
+}
+
+#cp-main h2 {
+	color: white;
+}
+
+.panel h2, h3 {
+	color: #49f1fe;
+}
+
+#cp-main .panel li.header dd, #cp-main .panel li.header dt {
+    color: #49f1fe;

@@ -1,0 +1,92 @@
+/*stylesheet for New Amsterdam Times section*/
+
+iframe, .frame {
+	display: block;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+@font-face {
+	font-family: "neuropol";
+	src: url(http://www.crimsonaccord.com/fonts/neuropol/NEUROPOL.TTF) format("truetype");
+	}
+
+@font-face {
+	font-family: "entersandsmanbold";
+	src:url(http://www.crimsonaccord.com/fonts/entersandsmanbold/entsans.ttf) format("truetype");
+}
+
+
+a {
+	color: white;
+}
+
+.container {
+	background-image: url("/images/news/cb.png");
+	width: 100%;
+}
+
+
+h1, h2, h3, h4 {
+	font-family: neuropol, sans-serif;
+}
+
+.navbar {
+	font-family: 'neuropol';
+	color: white;
+	background-image: -webkit-linear-gradient(top, #b8dee8 0%, #084449 100%);
+	background-image: linear-gradient(to bottom, #b8dee8 0%, #084449 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8dee8', endColorstr='#084449', GradientType=0);
+	border-bottom-left-radius: 30px;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
+	border: 1px solid black;
+}
+
+.navbar-default .navbar-nav>li>a  {
+    color: white;
+    text-shadow: 0 0 3px #49f1fe;
+    font-size: large;
+    text-align: right;
+}
+
+.navbar-default .navbar-brand {
+	/*color: white;*/
+	font-size: 250%;
+	text-shadow: 0 0 3px #49f1fe;
+}
+
+.navbar .nav > li > a:hover {
+	color: #777;
+	text-shadow: 0 0 3px #49f1fe;
+}
+
+.navbar-right > li {
+	border: 3px inset #49f1fe;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+.contact {
+	font-family: "entersandsmanbold";
+	color: #777;
+	background-color: #0d494e;
+	text-align: center;
+	padding-bottom: 100px;
+}
+
+a {
+	color: white;
+}
+
+a:hover {
+
+	color: #49f1fe;
+}
+
+

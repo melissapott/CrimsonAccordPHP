@@ -1,0 +1,50 @@
+<?php 
+include_once $_SERVER['DOCUMENT_ROOT']."/includes/file_functions.php"; ?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Race Sheet Listing</title>
+ </head>
+ 
+ <body>
+ <?php
+ 
+ //get all the faction names from the race table and build the table head
+$sql = "SELECT * FROM races";
+$result = $mysqli->query($sql);
+$races = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+echo "<table class=\"table\"> <thead> <tr> <th>Game #</th>";
+// Loop through each row and print it
+foreach( $races as $race ){
+   echo "<th>" . $race["race_name"] . "</th>";
+}
+echo "</thead> <tbody>";
+
+//now, build the table contents consisting of game# and file names
+//outside loop lists the games for row labels, 
+//inside loop lists the race sheet files at intersection of faction and game#
+
+$sql = "SELECT game_number FROM calendar ORDER BY game_number DESC";
+$result = $mysqli->query($sql);
+$games = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	
+foreach ($games as $game){
+	echo "<tr><td>" . $game["game_number"] . "</td>";
+	foreach ($races as $race){
+		$sql = "SELECT * FROM race_sheets WHERE game_number = " . $game["game_number"] . " AND race_id = " . $race["id"];
+		$result = $mysqli->query($sql);
+		$sheets = mysqli_fetch_assoc($result);
+		echo "<td><a href=\"index.php?page=race_sheet_edit.html&id=" . $sheets["id"] . "&race=" . $sheets["race_id"] . "&game=" . $sheets["game_number"];
+		echo "\">" . $sheets["file_name"] . "</a></td>";
+		
+	}	
+	echo "</tr>";
+}
+
+echo "</tbody></table>";
+
+ ?>
+ 
+ </body>

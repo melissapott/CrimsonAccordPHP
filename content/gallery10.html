@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+
+<p>Photos from game ten</p>
+<p>April 2013</p>
+
+
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+<div id="links">
+    <a href="images/game10/1game10.jpg" title="">
+        <img src="images/game10/thumbs/1game10.jpg" alt="">
+    </a>
+    <a href="images/game10/2game10.jpg" title="">
+        <img src="images/game10/thumbs/2game10.jpg" alt="" >
+    </a>
+    <a href="images/game10/3game10.jpg" title="">
+        <img src="images/game10/thumbs/3game10.jpg" alt="" >
+    </a>
+	<a href="images/game10/4game10.jpg" title="">
+		<img src="images/game10/thumbs/4game10.jpg" alt="" >
+    </a>
+
+</div>
+
+
+
+
+
+
+
+<script src="js/blueimp-gallery.min.js"></script>
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>
+
+</article>
+</body>
+</html>

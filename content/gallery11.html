@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<article>
+
+<p>Photos from game eleven</p>
+<p>June 2013</p>
+
+
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+<div id="links">
+    <a href="images/game11/1game11.jpg" title="Ben Ravencroft">
+        <img src="images/game11/thumbs/1game11.jpg" alt="">
+    </a>
+    <a href="images/game11/2game11.jpg" title="Beth takes control">
+        <img src="images/game11/thumbs/2game11.jpg" alt="" >
+    </a>
+    <a href="images/game11/3game11.jpg" title="Bobby's reaction to Melinda Cole">
+        <img src="images/game11/thumbs/3game11.jpg" alt="" >
+    </a>
+	<a href="images/game11/4game11.jpg" title="Bristler dialogue">
+		<img src="images/game11/thumbs/4game11.jpg" alt="" >
+    </a>
+	<a href="images/game11/5game11.jpg" title="Byron Bronx">
+		<img src="images/game11/thumbs/5game11.jpg" alt="">
+    </a>
+    <a href="images/game11/6game11.jpg" title="Cal">
+        <img src="images/game11/thumbs/6game11.jpg" alt="">
+    </a>
+	<a href="images/game11/7game11.jpg" title="">
+        <img src="images/game11/thumbs/7game11.jpg" alt="">
+    </a>
+    <a href="images/game11/8game11.jpg" title="">
+        <img src="images/game11/thumbs/8game11.jpg" alt="">
+    </a>
+    <a href="images/game11/9game11.jpg" title="Edge">
+        <img src="images/game11/thumbs/9game11.jpg" alt="">
+    </a>
+    <a href="images/game11/10game11.jpg" title="Elizabeth Dunsmore">
+        <img src="images/game11/thumbs/10game11.jpg" alt="">
+    </a>
+    <a href="images/game11/11game11.jpg" title="Gabe Meyers">
+        <img src="images/game11/thumbs/11game11.jpg" alt="">
+    </a>
+    <a href="images/game11/12game11.jpg" title="Isaiah Stillwaters">
+        <img src="images/game11/thumbs/12game11.jpg" alt="">
+    </a>
+    <a href="images/game11/13game11.jpg" title="McShane">
+        <img src="images/game11/thumbs/13game11.jpg" alt="">
+    </a>
+    <a href="images/game11/14game11.jpg" title="Melinda Cole">
+        <img src="images/game11/thumbs/14game11.jpg" alt="">
+    </a>
+    <a href="images/game11/15game11.jpg" title="Piper Panning">
+        <img src="images/game11/thumbs/15game11.jpg" alt="">
+    </a>
+    <a href="images/game11/16game11.jpg" title="Ravencroft the Thinker">
+        <img src="images/game11/thumbs/16game11.jpg" alt="">
+    </a>
+    <a href="images/game11/17game11.jpg" title="ritual scene">
+        <img src="images/game11/thumbs/17game11.jpg" alt="">
+    </a>
+    <a href="images/game11/18game11.jpg" title="ritual scene">
+        <img src="images/game11/thumbs/18game11.jpg" alt="">
+    </a>
+    <a href="images/game11/19game11.jpg" title="ritual scene">
+        <img src="images/game11/thumbs/19game11.jpg" alt="">
+    </a>
+    <a href="images/game11/20game11.jpg" title="save the spirit whales">
+        <img src="images/game11/thumbs/20game11.jpg" alt="">
+    </a>
+    <a href="images/game11/21game11.jpg" title="shifters">
+        <img src="images/game11/thumbs/21game11.jpg" alt="">
+    </a>
+    <a href="images/game11/22game11.jpg" title="soiree at the crime scene">
+        <img src="images/game11/thumbs/22game11.jpg" alt="">
+    </a>
+    <a href="images/game11/23game11.jpg" title="the magistrate">
+        <img src="images/game11/thumbs/23game11.jpg" alt="">
+    </a>
+    <a href="images/game11/24game11.jpg" title="the messenger">
+        <img src="images/game11/thumbs/24game11.jpg" alt="">
+    </a>
+	
+</div>
+
+
+
+
+
+
+
+<script src="js/blueimp-gallery.min.js"></script>
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>
+
+</article>
+</body>
+</html>

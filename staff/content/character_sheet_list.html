@@ -1,0 +1,68 @@
+<?php 
+include_once $_SERVER['DOCUMENT_ROOT']."/includes/db_connect.php"; ?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Character Sheet Listing</title>
+ </head>
+ 
+ <body>
+ 
+
+ <?php
+
+//if we're showing the character sheets by game number:
+if($_POST["optionsAction"] === "game"){
+	$sql = "SELECT * FROM calendar WHERE game_number = " . $_POST["game_select"];
+	$result = $mysqli->query($sql);
+	$heading = $result->fetch_assoc();
+	echo "<h2>Character Sheets for Game #" . $heading["game_number"] ." - " . $heading["game_date"] . "</h2>";
+	echo "<table class=\"table\"> <thead> <tr> <th>Character Name</th><th>Character Sheet</th><th>Edit</th></tr></thead><tbody>";
+	$sql = "SELECT * FROM `character`";
+	$result = $mysqli->query($sql);
+	$characters = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	foreach( $characters as $character ){
+		echo "<tr><td>" .  $character["char_name"] . "</td><td>";
+		$sql = "SELECT * FROM character_sheets WHERE char_id = " . $character["id"] . " AND game_number = " . $_POST["game_select"];
+		$result = $mysqli->query($sql);
+		if ($result->num_rows > 0){
+			$row=$result->fetch_assoc();
+			echo $row["file_name"] . "</td>";
+			echo "<td><a href=\"index.php?page=character_sheet_edit.html&id=" . $row["id"] . "&char_id=" . $row["char_id"] . "&game=" . $row["game_number"];
+			echo "\"><span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span></a></td>";
+		} else {
+			echo "no file found</td><td></td>";
+		}
+		echo "</tr>";
+	}
+	echo "</tbody></table>";
+} else if($_POST["optionsAction"] === "character"){ //if we're showing the character sheets by character
+	$sql = "SELECT * FROM `character` WHERE id = " . $_POST["character_select"];
+	$result = $mysqli->query($sql);
+	$heading = $result->fetch_assoc();
+	echo "<h2>Character Sheets for " . $heading["char_name"] . "</h2>";
+	echo "<table class=\"table\"> <thead><tr><th>Game Number</th><th>Character Sheet</th><th>Edit</th></tr></thead><tbody>";
+	$sql = "SELECT * FROM calendar";
+	$result = $mysqli->query($sql);
+	$games = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	foreach($games as $game){
+		echo "<tr><td>" . $game["game_number"] . " - " . $game["game_date"] . "</td><td>";
+		$sql = "SELECT * FROM character_sheets WHERE char_id = " . $_POST["character_select"] . " AND game_number = " . $game["game_number"];
+		$result = $mysqli->query($sql);
+		if ($result->num_rows > 0){
+			$row=$result->fetch_assoc();
+			echo $row["file_name"] . "</td>";
+			echo "<td><a href=\"index.php?page=character_sheet_edit.html&id=" . $row["id"] . "&char_id=" . $row["char_id"] . "&game=" . $row["game_number"];
+			echo "\"><span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span></a></td>";
+		} else {
+			echo "no file found</td><td></td>";
+		}
+		echo "</tr>";
+	}
+	echo "</tbody></table>";
+}
+
+ ?>
+ 
+ </body>

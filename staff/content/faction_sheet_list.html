@@ -1,0 +1,50 @@
+<?php 
+include_once $_SERVER['DOCUMENT_ROOT']."/includes/file_functions.php"; ?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Faction Sheet Listing</title>
+ </head>
+ 
+ <body>
+ <?php
+ 
+ //get all the faction names from the faction table and build the table head
+$sql = "SELECT * FROM factions";
+$result = $mysqli->query($sql);
+$factions = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+echo "<table class=\"table\"> <thead> <tr> <th>Game #</th>";
+// Loop through each row and print it
+foreach( $factions as $faction ){
+   echo "<th>" . $faction["faction_name"] . "</th>";
+}
+echo "</thead> <tbody>";
+
+//now, build the table contents consisting of game# and file names
+//outside loop lists the games for row labels, 
+//inside loop lists the faction sheet files at intersection of faction and game#
+
+$sql = "SELECT game_number FROM calendar ORDER BY game_number DESC";
+$result = $mysqli->query($sql);
+$games = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	
+foreach ($games as $game){
+	echo "<tr><td>" . $game["game_number"] . "</td>";
+	foreach ($factions as $faction){
+		$sql = "SELECT * FROM faction_sheets WHERE game_number = " . $game["game_number"] . " AND faction_id = " . $faction["id"];
+		$result = $mysqli->query($sql);
+		$sheets = mysqli_fetch_assoc($result);
+		echo "<td><a href=\"index.php?page=faction_sheet_edit.html&id=" . $sheets["id"] . "&faction=" . $sheets["faction_id"] . "&game=" . $sheets["game_number"];
+		echo "\">" . $sheets["file_name"] . "</a></td>";
+		
+	}	
+	echo "</tr>";
+}
+
+echo "</tbody></table>";
+
+ ?>
+ 
+ </body>

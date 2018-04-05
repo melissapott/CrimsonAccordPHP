@@ -1,0 +1,54 @@
+<?php 
+include_once $_SERVER['DOCUMENT_ROOT']."/includes/file_functions.php"; 
+include_once $_SERVER['DOCUMENT_ROOT']."/includes/character_functions.php"; 
+?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>View/Edit Character Sheets</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+ 
+</head>
+<body>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">View/Edit Character Sheets</div>
+		<div class="panel-body">
+			<form class="form-horizontal" action="index.php?page=character_sheet_list.html" method="post" name="file_upload" enctype="multipart/form-data">
+
+				<?php 
+				get_game_numbers($mysqli, $_GET["game"]); 
+				get_characters($mysqli,$_GET["char_id"]);
+				
+				?>
+				
+				<div class="radio">
+					<label>
+					<input type="radio" name="optionsAction" id="optionsAction1" value="game" checked>
+						List Character Sheets by Game
+					</label>
+				</div>
+				<div class="radio">
+					<label>
+					<input type="radio" name="optionsAction" id="optionsAction2" value="character">
+						List Character Sheets by Character
+					</label>
+				</div>
+	
+				<input type="hidden" name="activity" value="list_character_sheets">
+				<br>
+		
+				<div class="col-sm-offset-3 col-sm-10">
+					<input name="upload" type="submit" class="btn btn-primary" id="upload" value=" View Selected Sheets "> 
+				</div>
+				
+			</form>
+		</div>
+		<div class="panel-footer"></div>
+	</div>
+</body>
+</html>
